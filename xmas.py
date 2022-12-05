@@ -4,15 +4,19 @@
 import argparse
 import numpy as np
 
-DEFAULT_SEED = 2021
-HOUSEHOLDS = [["Jeanne", "Bill"], ["Laura", "Joe"], ["Doug"], ["Grandma", "Grandpa"]]
+DEFAULT_SEED = 2022
+HOUSEHOLDS = [
+    ["Jeanne", "Bill", "Rob", "Mike"], 
+    ["Laura", "Joe", "Isaac"], 
+    ["Doug"], 
+    ["Grandma", "Grandpa"]
+]
 
 
 class Edge:
     """
     Simple directed edge to manage gift pairings
     """
-
     def __init__(self, vin, vout):
         self.vin = vin
         self.vout = vout
@@ -71,9 +75,23 @@ def assign_gifts(households, seed=DEFAULT_SEED):
     return np.vstack(gift_tuples)
 
 
+def print_assignments(assignments):
+  """
+  Prints assignments nicely
+  
+  Args:
+      assignments : list 
+          A nested list, as assigned by `assign_gifts()`
+  
+  Returns : None
+  """
+  for i, swap_pair in enumerate(assignments):
+      print(f"Pairing {i + 1}:\t{swap_pair[0]} and {swap_pair[1]}")
+
+
 def main(households=HOUSEHOLDS, seed=DEFAULT_SEED):
     """
-    Esketit
+    Go Birds
     """
     seed_args = get_args()
     if seed_args.random_state is not None:
@@ -84,7 +102,7 @@ def main(households=HOUSEHOLDS, seed=DEFAULT_SEED):
                 "Random state must be an integer, or a numeric that can be coerced into an integer.\n For example: `python3 xmas.py --random_state 1234`"
             )
     gift_order = assign_gifts(households, seed)
-    print(gift_order)
+    print_assignments(gift_order)
 
 
 if __name__ == "__main__":

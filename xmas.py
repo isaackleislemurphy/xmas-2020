@@ -6,7 +6,7 @@ import argparse
 import numpy as np
 
 
-DEFAULT_random_state = 121697
+DEFAULT_RANDOM_STATE = 121697
 HOUSEHOLDS = [
     ["Jeanne", "Bill", "Rob", "Mike F", "Sophia"], 
     ["Laura", "Joe", "Isaac"], 
@@ -42,7 +42,7 @@ class Edge:
         return self.vin, self.vout
 
 
-def assign_gifts(households: List[List[str]], random_state: int = DEFAULT_random_state) -> List[Tuple[str, str]]:
+def assign_gifts(households: List[List[str]], random_state: int = DEFAULT_RANDOM_STATE) -> List[Tuple[str, str]]:
     """
     Assigns gifts across households, brute-force style. Specifically:
     1. Assigns all-possible cross-household edges.
@@ -105,12 +105,12 @@ def get_args() -> argparse.ArgumentParser:
         Parsed args
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("--random_state", type=int, default=DEFAULT_random_state, help="Pick a number, any number")
+    parser.add_argument("--random_state", type=int, default=DEFAULT_RANDOM_STATE, help="Pick a number, any number")
     args = parser.parse_args()
     return args
 
 
-def main(households: List[List[str]]=HOUSEHOLDS):
+def main(households: List[List[str]] = HOUSEHOLDS):
     """
     Go Birds
     """

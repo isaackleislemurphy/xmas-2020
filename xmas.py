@@ -8,12 +8,12 @@ import numpy as np
 
 DEFAULT_random_state = 121697
 HOUSEHOLDS = [
-    ["Jeanne", "Bill", "Rob", "Mike"], 
+    ["Jeanne", "Bill", "Rob", "Mike F", "Sophia"], 
     ["Laura", "Joe", "Isaac"], 
     ["Doug"], 
     ["Grandma", "Grandpa"],
     ["Jack", "Jon", "Reese", "Wendy"],
-    ["Jim", "Mike", "Heather"]
+    ["Jim", "Mike H", "Heather"],
 ]
 
 
